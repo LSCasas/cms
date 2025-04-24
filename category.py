@@ -11,3 +11,9 @@ def get_category_by_id(id):
     table = "category"
     where = ["id_category", "=", str(id)]
     return db.select(columns, table, where)
+
+
+def create_category(name):
+    columns = ["name"]
+    values = [name]
+    return db.insert("category", columns, values)
