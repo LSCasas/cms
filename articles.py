@@ -20,3 +20,16 @@ def create_articles(title, content, id_author, id_category, active):
                "id_author", "id_category", "active"]
     values = [title, content, id_author, id_category, active]
     return db.insert("articles", columns, values)
+
+
+def update_articles(id, title, content, id_author, id_category, active):
+    columns = ["title", "content",
+               "id_author", "id_category", "active"]
+    values = [title, content, id_author, id_category, active]
+    return db.update("articles", columns, values, where=("id_article", "=", id))
+
+
+def deactivate_articles(id, active):
+    column = ["active"]
+    value = [active]
+    return db.update("articles", column, value, where=("id_article", "=", id))

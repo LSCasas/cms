@@ -17,3 +17,15 @@ def create_author(name, last_name, email, password, alias):
     columns = ["name", "last_name", "email", "password", "alias"]
     values = [name, last_name, email, password, alias]
     return db.insert("author", columns, values)
+
+
+def update_author(id, name, last_name, email, password, alias):
+    columns = ["name", "last_name", "email", "password", "alias"]
+    values = [name, last_name, email, password, alias]
+    return db.update("author", columns, values, where=("id_author", "=", id))
+
+
+# def deactivate_author(id, activate):
+#     column = ["activate"]
+#     value = [activate]
+#     return db.update("author", column, value, where=("id_author", "=", id))

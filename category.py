@@ -17,3 +17,9 @@ def create_category(name):
     columns = ["name"]
     values = [name]
     return db.insert("category", columns, values)
+
+
+def update_category(id, name):
+    columns = ["name"]
+    values = [name]
+    return db.update("category", columns, values, where=("id_category", "=", id))
