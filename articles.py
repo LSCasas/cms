@@ -7,6 +7,34 @@ def get_all_articles():
     return db.select(columns, "articles")
 
 
+def get_active_articles():
+    columns = ["id_article", "title", "content",
+               "id_author", "id_category", "created_at", "active"]
+    where_clause = ("active", "=", True)
+    return db.select(columns, "articles", where=where_clause)
+
+
+def get_by_category(category):
+    columns = ["id_article", "title", "content",
+               "id_author", "id_category", "created_at", "active"]
+    where_clause = ("id_category", "=", category)
+    return db.select(columns, "articles", where=where_clause)
+
+
+def get_by_author(author):
+    columns = ["id_article", "title", "content",
+               "id_author", "id_category", "created_at", "active"]
+    where_clause = ("id_author", "=", author)
+    return db.select(columns, "articles", where=where_clause)
+
+
+def get_active_articles():
+    columns = ["id_article", "title", "content",
+               "id_author", "id_category", "created_at", "active"]
+    where_clause = ("active", "=", True)
+    return db.select(columns, "articles", where=where_clause)
+
+
 def get_article_by_id(id):
     table = "articles"
     columns = ["id_article", "title", "content",
